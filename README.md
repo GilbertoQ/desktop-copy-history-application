@@ -1,0 +1,1 @@
+desktop-copy-history-application
