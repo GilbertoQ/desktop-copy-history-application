@@ -12,15 +12,30 @@ const App = new Vue({
     },
     
     mounted(){
+        this.history.push({
+            text: clipboard.readText(),
+            clipped: new Date().toDateString()
+        });
         setInterval(this.checkClipboard,500);
 
+    },
+    computed: {
+        historyReversed(){
+            return this.history.slice().reverse();
+        }
     },
     methods:{
         checkClipboard(){
             const text = clipboard.readText();
-            if (this.history[this.history.length-1] != text){
-                this.history.push(text);
+            if (this.history[this.history.length-1].text !== text){
+                this.history.push({
+                    text,
+                    clipped: new Date().toDateString()
+                });
             }
+        },
+        itemClicked(item){
+            clipboard.writeText(item.text);
         }
     }
 });

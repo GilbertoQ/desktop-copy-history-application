@@ -15,8 +15,11 @@
         </p>  
      
 
-      <a class="panel-block is-active" v-for="item in history">
-        <pre>{{item}}</pre>
+      <a class="panel-block is-active"
+       v-for="item in historyReversed"
+       @click="itemClicked(item)">
+        <pre>{{item.text}}</pre>
+        <small>{{item.clipped}}</small>
       </a>
 
     </nav>
