@@ -16,7 +16,8 @@ function createWindow () {
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     },
-    show: true
+    show: true,
+    autoHideMenuBar: true
   })
 
   // and load the index.html of the app.
@@ -57,7 +58,7 @@ function createWindow () {
   //});
 
   // Open the DevTools.
-  //mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
