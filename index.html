@@ -4,12 +4,24 @@
     <meta charset="UTF-8">
     <title>Electron Project</title>
     <link rel="stylesheet" href="node_modules/bulma/css/bulma.css">
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
    <main id="app">
-     <h1>{{ title }}</h1>
+     
+     <nav class="panel">
+        <p class="panel-heading has-text-centered">
+        {{ title }}
+        </p>  
+     
+
+      <a class="panel-block is-active" v-for="item in history">
+        <pre>{{item}}</pre>
+      </a>
+
+    </nav>
    </main>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
     <script src="./renderer.js"></script>
   </body>
 </html>
