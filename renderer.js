@@ -35,7 +35,10 @@ const App = new Vue({
             }
         },
         itemClicked(item){
+            const index = this.history.indexOf(item);
+            this.history.splice(index,1);
             clipboard.writeText(item.text);
+            window.scrollTo(0,0);
         }
     }
 });
